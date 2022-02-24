@@ -8,7 +8,7 @@ function getOutput(){
     return document.getElementById("output-value").innerText;
 }
 function printOutput(num){
-    if(num=""){
+    if(num==""){
         document.getElementById("output-value").innerText=num;
     }else{
         document.getElementById("output-value").innerText=getFormattedNumber(num);
@@ -18,7 +18,7 @@ function getFormattedNumber(num){
     if(num=="-"){
         return "";
     }
-    var n =number(num);
+    var n =Number(num);
     var value=n.toLocaleString("en");
     return value;
 }
@@ -43,7 +43,7 @@ for(var i=0;i<operator.length;i++){
         else{
             var output=getOutput();
             var history=getHistory();
-            if(output==""&history!=""){
+            if(output==""&&history!=""){
                 if(isNaN(history[history.length-1])){
                     history=history.substring(0,history,length-1);
                 }
@@ -69,9 +69,12 @@ var number =document.getElementsByClassName("number");
 for(var i=0;i<number.length;i++){
     number[i].addEventListener('click',function(){
         var output=reverseNumberFormat(getOutput());
+        console.log(reverseNumberFormat(getOutput()))
+        
         if(output!=NaN){
             output=output+this.id;
             printOutput(output);
         }
     });
 }
+
