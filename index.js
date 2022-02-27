@@ -19,10 +19,12 @@ function getFormattedNumber(num){
         return "";
     }
     var n =Number(num);
+    //this method set the language of our num
     var value=n.toLocaleString("en");
     return value;
 }
 function reverseNumberFormat(num){
+    //this regular exprestion change the comma with empty string
     return Number(num.replace(/,/g,''));
 }
 
